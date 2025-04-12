@@ -5,15 +5,15 @@ import { usePathname } from "next/navigation";
 export default function Header() {
     const pathname = usePathname();
   const arr = [
+    { name: "博客", path: "/blog" },
     { name: "性能", path: "/performance" },
-    { name: "Reli", path: "/reliability" },
+    { name: "工具", path: "/tool" },
     { name: "Scale", path: "/scale" },
-    { name: "Blog", path: "/blog" },
   ];
   // if ([...arr.map((item) => item.path), "/"].includes(pathname)) {
     return (
-      <div className="absolute w-full z-10">
-        <div className="flex justify-between items-center container mx-auto p-5 font-bold text-white">
+      <div className="fixed w-full z-10 top-0 left-0">
+        <div className="flex justify-between items-center container mx-auto py-5 font-bold text-white">
           <Link href="/" className="text-3xl">
             首页
           </Link>
@@ -27,7 +27,4 @@ export default function Header() {
         </div>
       </div>
     );
-  // } else {
-  //   return null;
-  // }
 }

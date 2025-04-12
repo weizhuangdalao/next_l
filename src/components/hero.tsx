@@ -1,3 +1,10 @@
+/***
+ * 使用背景图片
+ * 不需要纵向滚动条的页面使用
+ * 
+ * 
+ */
+
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 
@@ -23,7 +30,7 @@ export default function hero({ src, content }: Props) {
             </span>
           </div>
         ) : (
-          <div className="max-w-3xl mx-auto bg-white mt-20 p-6 rounded-lg">{content}</div>
+          <div className="text-white pt-20 h-full">{content}</div>
         )}
       </div>
     </div>
