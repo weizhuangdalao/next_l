@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  // provider = "postgresql"
+  // url      = env("DATABASE_URL")
+  // provider = "sqlite"
+  // url      = "file:./dev.db" // 数据库文件将保存在项目根目录
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+//  用户模型
+model User {
+  id        Int      @id @default(autoincrement())
+  userName  String   @unique @map("user_name")
+  email     String   @unique
+  password  String
+  nikeName  String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  //数据库表名修改
+  @@map("user")
+}
